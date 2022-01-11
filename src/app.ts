@@ -7,6 +7,15 @@
   Docker:
     docker run --rm -it $(docker build -q .) <# of puzzle to solve>
 
+
+
+TODOs:
+    docker - set up linked volumes
+    docker - fix tsc install -- doesn't register?
+    dockerfile - only copy data & src (not node_modules)
+
+
+
 ************************************************/
 
 const puzzle = process.argv[2]

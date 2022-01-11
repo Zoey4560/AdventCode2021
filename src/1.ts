@@ -1,6 +1,6 @@
-const fs = require('fs')
+import {readFile} from 'fs'
 
-fs.readFile('data/1.txt', (err: any, data: Buffer) => {
+readFile('data/1.txt', (err, data) => {
     if (err) {
         console.error(err)
         return
