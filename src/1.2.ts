@@ -1,7 +1,7 @@
 import {readData} from './helpers'
 
 readData('1', (data) => {
-    const depths = data.toString().split(/\n/).map(x => parseInt(x))
+    const depths = data.split(/\n/).map(x => parseInt(x))
 
     let increaseCount = 0
     let lastDepth = depths[0] + depths[1] + depths[2]

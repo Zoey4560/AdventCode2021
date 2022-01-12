@@ -1,7 +1,7 @@
 import {readData} from './helpers'
 
 readData('3', (data) => {
-    const values = data.toString().split(/\n/)
+    const values = data.split(/\n/)
     let valueCounts: number[][] = [] // [[a0, a1], [b0, b1]]
 
     values.forEach(sval => {

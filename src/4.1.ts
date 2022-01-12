@@ -8,5 +8,5 @@ console.debug(b.markers)
 
 
 readData('4', (data) => {
-
+    // console.debug(data.split())
 })

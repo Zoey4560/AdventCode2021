@@ -1,7 +1,7 @@
 import {readData} from './helpers'
 
 readData('2', (data) => {
-    const instructions = data.toString().split(/\n/)
+    const instructions = data.split(/\n/)
 
     let location = 0
     let depth = 0
