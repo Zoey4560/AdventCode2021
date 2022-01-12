@@ -1,11 +1,6 @@
-import {readFile} from 'fs'
+import {readData} from './helpers'
 
-readFile('data/1.txt', (err, data) => {
-    if (err) {
-        console.error(err)
-        return
-    }
-
+readData('1', (data) => {
     const depths = data.toString().split(/\n/).map(x => parseInt(x))
 
     let increaseCount = 0

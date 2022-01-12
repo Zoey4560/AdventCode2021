@@ -1,13 +1,8 @@
-import {readFile} from 'fs'
+import {readData} from './helpers'
 
 type Values = number[][]
 
-readFile('data/3.txt', (err, data) => {
-    if (err) {
-        console.error(err)
-        return
-    }
-
+readData('3', (data) => {
     const values: Values = data.toString().split(/\n/).map(x => x.split('').map(y => parseInt(y)))
     values.pop() //drop trailing newline
 

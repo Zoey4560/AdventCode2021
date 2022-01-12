@@ -1,4 +1,4 @@
-import {readFile} from 'fs'
+import {readData} from './helpers'
 import {BingoCard} from './models/Bingo'
 
 
@@ -7,6 +7,6 @@ console.debug(b.board)
 console.debug(b.markers)
 
 
-readFile('data/4.txt', (err, data) => {
+readData('4', (data) => {
 
 })

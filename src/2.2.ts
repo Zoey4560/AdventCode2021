@@ -1,13 +1,6 @@
-import {readFile} from 'fs'
+import {readData} from './helpers'
 
-
-
-readFile('data/2.txt', (err, data) => {
-    if (err) {
-        console.error(err)
-        return
-    }
-
+readData('2', (data) => {
     const instructions = data.toString().split(/\n/)
 
     let location = 0

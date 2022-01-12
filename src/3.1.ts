@@ -1,11 +1,6 @@
-import {readFile} from 'fs'
+import {readData} from './helpers'
 
-readFile('data/3.txt', (err, data) => {
-    if (err) {
-        console.error(err)
-        return
-    }
-
+readData('3', (data) => {
     const values = data.toString().split(/\n/)
     let valueCounts: number[][] = [] // [[a0, a1], [b0, b1]]
 
