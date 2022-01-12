@@ -12,9 +12,6 @@
 TODOs:
     docker - set up linked volumes
     docker - fix tsc install -- doesn't register?
-    dockerfile - only copy data & src (not node_modules)
-
-
 
 ************************************************/
 
