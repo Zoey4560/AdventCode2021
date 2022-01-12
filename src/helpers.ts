@@ -7,6 +7,6 @@ export function readData(s: string, fn: (data:string) => void) {
             return
         }
 
-        fn(data.toString())
+        fn(data.toString().trim())
     })
 }

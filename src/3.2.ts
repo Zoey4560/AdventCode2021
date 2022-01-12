@@ -4,7 +4,6 @@ type Values = number[][]
 
 readData('3', (data) => {
     const values: Values = data.split(/\n/).map(x => x.split('').map(y => parseInt(y)))
-    values.pop() //drop trailing newline
 
     const oxygenRating = ratingReducer(values, false)
     const co2Rating = ratingReducer(values, true)
