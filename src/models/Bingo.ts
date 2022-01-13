@@ -21,10 +21,22 @@ export class BingoCard {
         }
     }
 
+    public get score() {
+        let score = 0
+        for (let i = 0; i < this.board.length; i++) {
+            for (let j = 0; j < this.board[i].length; j++) {
+                if (!this.markers[i][j]) {
+                    score += this.board[i][j]
+                }
+            }
+        }
+        return score
+    }
+
     public get isWinning() {
         return this.checkRows() || this.checkColumns()
     }
-    
+
     private checkRows() {
         return this.markers.some(row => !row.includes(false))
     }
