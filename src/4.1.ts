@@ -2,11 +2,42 @@ import {readData} from './helpers'
 import {BingoCard} from './models/Bingo'
 
 
-let b = new BingoCard([[0,0,0],[0,0,0],[0,0,0]])
-console.debug(b.board)
-console.debug(b.markers)
+readData('4.debug', (data) => {
+    const [numbersData, ...boardsData] = data.split(/\n\n/)
+    const numbers = [14, 21, 17, 24, 4] //numbersData.split(/,/).map(x => parseInt(x))
+    const boards = boardsData.map(x => new BingoCard(x))
+
+    for (let n = 0; n < numbers.length; n++) {
+        const number = numbers[n]
+        console.debug(`Calling #: ${number}`)
 
 
-readData('4', (data) => {
-    // console.debug(data.split())
+
+        for (let i = 0; i < boards.length; i++) {
+            let board = boards[i]
+            //TODO?: confirm this still mutates boards[]
+            // due to object reference
+            board.markNumber(number)
+            if (board.isWinning) {
+                console.debug('WINNER')
+                console.debug(board)
+                //TODO HERE!
+                return
+            }
+        }
+        boards.forEach(b => {
+            console.debug([b.board, b.markers])
+        })
+    }
+
+    numbers.forEach(number => {
+        console.debug(`Calling #: ${number}`)
+        boards.forEach(board => {
+            board.markNumber(number)
+            if (board.isWinning) {
+                console.debug(board)
+
+            }
+        })
+    })
 })

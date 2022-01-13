@@ -2,11 +2,11 @@ type BingoBoard = number[][]
 type MarkerBoard = boolean[][]
 
 export class BingoCard {
-    board: BingoBoard
-    markers: MarkerBoard = []
+    board: BingoBoard = [[]]
+    markers: MarkerBoard = [[]]
 
-    constructor(board: BingoBoard) {
-        this.board = board
+    constructor(boardString: string) {
+        this.parseBoardString(boardString)
         this.resetMarkers()
     }
 
@@ -21,14 +21,11 @@ export class BingoCard {
         }
     }
 
-    public isWinning() {
-        return this.checkRows || this.checkColumns
+    public get isWinning() {
+        return this.checkRows() || this.checkColumns()
     }
 
-    // static createBoard(inputString: string): BingoBoard {
-    //     //TODO implement
-    // }
-
+    //TODO unit tests for both these checkers
     private checkRows() {
         this.markers.forEach(row => {
             if (!row.includes(false)) {
@@ -38,8 +35,6 @@ export class BingoCard {
         return false
     }
 
-    //TODO unit tests for both these checkers
-
     private checkColumns() {
         for (let i = 0; i < this.markers[0].length; i++) {
             if (!this.markers.some(row => row[i] == false)) {
@@ -47,6 +42,14 @@ export class BingoCard {
             }
         }
         return false
+    }
+
+    private parseBoardString(input: string) {
+        this.board = []
+        input.split(/\n/).forEach(srow => {
+            let row = srow.trim().split(/ +/).map(s => parseInt(s))
+            this.board.push(row)
+        })
     }
 
     private resetMarkers() {
