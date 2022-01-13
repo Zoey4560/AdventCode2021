@@ -4,7 +4,7 @@ import {BingoCard} from './models/Bingo'
 
 readData('4.debug', (data) => {
     const [numbersData, ...boardsData] = data.split(/\n\n/)
-    const numbers = [14, 21, 17, 24, 4] //numbersData.split(/,/).map(x => parseInt(x))
+    const numbers = numbersData.split(/,/).map(x => parseInt(x))
     const boards = boardsData.map(x => new BingoCard(x))
 
     for (let n = 0; n < numbers.length; n++) {
@@ -25,9 +25,6 @@ readData('4.debug', (data) => {
                 return
             }
         }
-        boards.forEach(b => {
-            console.debug([b.board, b.markers])
-        })
     }
 
     numbers.forEach(number => {

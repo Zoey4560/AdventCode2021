@@ -3,7 +3,7 @@
   Focus on improving Typescript & Docker skills
 
   Local:
-    tsc && node build/app.js <# of puzzle to solve>
+    tsc && npm start <# of puzzle to solve>
   Docker:
     docker run --rm -it $(docker build -q .) <# of puzzle to solve>
 

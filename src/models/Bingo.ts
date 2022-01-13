@@ -24,15 +24,9 @@ export class BingoCard {
     public get isWinning() {
         return this.checkRows() || this.checkColumns()
     }
-
-    //TODO unit tests for both these checkers
+    
     private checkRows() {
-        this.markers.forEach(row => {
-            if (!row.includes(false)) {
-                return true
-            }
-        })
-        return false
+        return this.markers.some(row => !row.includes(false))
     }
 
     private checkColumns() {
